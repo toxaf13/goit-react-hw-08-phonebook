@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { addContact } from 'redux/tasks/operations';
+import { addContact, fetchContacts } from 'redux/tasks/operations';
 
 import style from './ContactForm.module.css';
 
@@ -12,7 +12,7 @@ export default function ContactForm() {
   const onSubmit = e => {
    e.preventDefault();
 
-    data.some(contact => contact.name === name)
+    fetchContacts.some(contact => contact.name === name)
       ? alert(`${name} is already in contacts`)
       : addContact({
           name: name,
