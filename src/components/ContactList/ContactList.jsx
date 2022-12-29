@@ -1,28 +1,22 @@
-import { useGetContactsQuery } from 'redux/contactsApi';
 import Contact from './Contact';
-import PropTypes from 'prop-types';
 import style from './ContactList.module.css';
+import { selectContacts, selectItems } from 'redux/contacts/selectors';
+import { useSelector } from 'react-redux';
 
-export default function  ContactList  ({ filter }) {
-   const { data } = useGetContactsQuery();
 
-   const itemsFiltered = data?.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+export default function  ContactList  () {
 
-    if (itemsFiltered){
+
+   const contactsItem = useSelector(selectItems);
 
       return (
          <ul className={style.list}>
-           {itemsFiltered.map( ({id,name,phone}) => (
+           {contactsItem.map( ({id,name,number}) => (
             <li key = {id}>
-               <Contact id={id} name={name} number={phone}/>  
+               <Contact id={id} name={name} number={number}/>  
             </li>
              ))}
          </ul>
        );
     }  
-};
-ContactList.propTypes = {
-   filter: PropTypes.string.isRequired,
- };
+

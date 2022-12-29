@@ -1,15 +1,25 @@
 .list {
-   width: 30vw;
- }
- 
- .item {
    display: flex;
-   justify-content: space-between;
-   margin-bottom: 5px;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   flex-wrap: wrap;
+   margin-top: 15px;
+ }
+ .contacts{
+   display: flex;
+align-items: center;
+   padding: 15px;
+   /*border: 1px solid black;*/
+
+}
+ .contactsText {
+   font-size: 20px;
  }
  
  .deleteBtn {
-   padding: 5px 10px;
-
+   padding: 2px 5px;
+   font-size: 12px;
    cursor: pointer;
+   margin-left: 15px;
  }
